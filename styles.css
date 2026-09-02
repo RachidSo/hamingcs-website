@@ -1,0 +1,424 @@
+/* Hamingcs — shared styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #F5F6F8;
+  --bg-deep: #10182A;
+  --ink: #12182A;
+  --ink-soft: #232B3D;
+  --slate: #5B6472;
+  --slate-light: #8B93A3;
+  --teal: #0F6B63;
+  --teal-bright: #148A7D;
+  --copper: #B9793C;
+  --hairline: #DBDEE4;
+  --hairline-dark: #2A3348;
+  --white: #FFFFFF;
+  --max-w: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--teal); color: #fff; }
+
+a { color: inherit; text-decoration: none; }
+
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ---------- Nav ---------- */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245, 246, 248, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.site-nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.logo-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.wordmark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.wordmark span { color: var(--teal); }
+
+.footer-logo {
+  height: 30px;
+  width: auto;
+  display: block;
+  opacity: 0.95;
+}
+
+.nav-links {
+  display: flex;
+  gap: 34px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.nav-links a {
+  color: var(--slate);
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--teal);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.93rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--teal-bright); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--hairline-dark);
+  color: var(--white);
+}
+.btn-ghost:hover { border-color: var(--teal-bright); color: var(--teal-bright); }
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--hairline);
+  color: var(--ink);
+}
+.btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ink);
+}
+
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--copper);
+  margin: 0 0 14px;
+}
+
+.lede {
+  font-size: 1.1rem;
+  color: var(--slate);
+  max-width: 56ch;
+}
+
+/* ---------- Hero (dark) ---------- */
+
+.hero {
+  background: var(--bg-deep);
+  color: var(--white);
+  padding: 92px 0 96px;
+}
+
+.hero .eyebrow { color: var(--teal-bright); }
+
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(2.3rem, 4.6vw, 3.4rem);
+  max-width: 15ch;
+  line-height: 1.08;
+}
+
+.hero .lede { color: #B7BDCB; margin-top: 20px; }
+
+.hero-actions { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+
+.split {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.pillar-pair {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--hairline-dark);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.pillar {
+  padding: 26px 28px;
+}
+
+.pillar + .pillar { border-top: 1px solid var(--hairline-dark); }
+
+.pillar .pillar-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--teal-bright);
+  margin-bottom: 8px;
+}
+
+.pillar p {
+  margin: 0;
+  color: #C7CCD8;
+  font-size: 0.93rem;
+}
+
+.pillar h3 {
+  color: var(--white);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+/* ---------- Sections (light) ---------- */
+
+section.block {
+  padding: 84px 0;
+}
+
+section.block.tight { padding: 64px 0; }
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--hairline);
+  margin: 0;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 48px 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.stat-label {
+  font-size: 0.86rem;
+  color: var(--slate);
+  margin-top: 4px;
+}
+
+/* ---------- Service groups ---------- */
+
+.service-group { margin-bottom: 56px; }
+.service-group:last-child { margin-bottom: 0; }
+
+.service-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.service-group-head h2 { font-size: 1.4rem; }
+
+.service-group-head .eyebrow { margin: 0; }
+
+.service-item {
+  padding: 22px 0;
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+}
+
+.service-item:last-child { border-bottom: 1px solid var(--hairline); }
+
+.service-item h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.service-item p {
+  margin: 0;
+  color: var(--slate);
+  font-size: 0.95rem;
+  max-width: 62ch;
+}
+
+/* ---------- About principles ---------- */
+
+.principle {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 18px;
+  padding: 22px 0;
+  border-top: 1px solid var(--hairline);
+}
+.principle:last-child { border-bottom: 1px solid var(--hairline); }
+
+.principle-mark {
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--copper);
+  font-size: 0.85rem;
+  padding-top: 3px;
+}
+
+.principle h3 { font-size: 1rem; margin-bottom: 4px; }
+.principle p { margin: 0; color: var(--slate); font-size: 0.94rem; }
+
+/* ---------- Contact ---------- */
+
+.contact-card {
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 40px;
+  background: var(--white);
+}
+
+.contact-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0;
+  border-top: 1px solid var(--hairline);
+}
+.contact-line:first-child { border-top: none; }
+
+.contact-line .label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--slate-light);
+}
+
+.contact-line .value { font-weight: 500; }
+
+/* ---------- Footer ---------- */
+
+footer.site-footer {
+  background: var(--bg-deep);
+  color: #8B93A3;
+  padding: 44px 0;
+  font-size: 0.85rem;
+}
+
+footer.site-footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 820px) {
+  .split, .two-col { grid-template-columns: 1fr; gap: 40px; }
+  .stat-row { grid-template-columns: 1fr; gap: 24px; }
+  .service-item { grid-template-columns: 1fr; gap: 8px; }
+  .nav-links { gap: 20px; font-size: 0.86rem; }
+  .wrap { padding: 0 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- Illustrations ---------- */
+
+.hero { position: relative; overflow: hidden; }
+.hero .wrap { position: relative; z-index: 1; }
+
+.hero-bg-svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+}
+
+.merge-illustration {
+  width: 100%;
+  height: auto;
+  margin-top: 36px;
+  display: block;
+}
+
+.principle-illustration {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
